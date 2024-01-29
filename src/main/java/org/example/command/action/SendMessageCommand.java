@@ -20,8 +20,7 @@ import static org.example.Resources.PAGE_CHAT;
 
 public class SendMessageCommand implements Command {
     @Override
-    public Result execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    public Result execute(HttpServletRequest request, HttpServletResponse response) {
         User user = (User) request.getSession().getAttribute("user");
         String name = user.getName();
         Optional<String> text = Optional.ofNullable(request.getParameter("message-input"));
