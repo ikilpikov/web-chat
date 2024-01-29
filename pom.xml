@@ -37,7 +37,6 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.30.v20200611</version>
-                <!-- Можно добавлять свои настройки, например, scanIntervalSeconds и т.д. -->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

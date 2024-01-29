@@ -5,6 +5,7 @@ import java.util.List;
 
 public final class DataBase {
     private static List<User> users = new ArrayList<>();
+    private static List<Message> messages = new ArrayList<>();
 
     private DataBase() {
     }
@@ -13,6 +14,13 @@ public final class DataBase {
         return new ArrayList<>(users);
     }
 
+    public static List<Message> getMessages() {
+        return new ArrayList<>(messages);
+    }
+
+    public static void addMessage(Message message) {
+        messages.add(message);
+    }
     public static void init() {
         users.add(new User("asd", "asd", "Kirill", UserType.CLIENT));
         users.add(new User("qwe", "qwe", "Anton", UserType.CLIENT));
