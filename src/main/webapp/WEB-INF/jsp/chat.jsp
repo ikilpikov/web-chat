@@ -29,6 +29,7 @@
     </form>
 
     <button id="logout-button">Выйти из аккаунта</button>
+    <button id="admin-button">Управление правами пользователей</button>
 </div>
 </body>
 <script>

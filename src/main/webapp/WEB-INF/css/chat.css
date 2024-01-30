@@ -57,7 +57,7 @@ body {
     background-color: #636060;
 }
 
-#logout-button {
+#logout-button, #admin-button {
     margin-top: 10px;
     padding: 8px 15px;
     background-color: #0F0F0F;
@@ -68,6 +68,6 @@ body {
     transition: background-color 0.1s ease;
 }
 
-#logout-button:hover {
+#logout-button:hover, #admin-button:hover {
     background-color: #636060;
 }
