@@ -26,7 +26,6 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         Optional<Object> user = Optional.ofNullable(httpServletRequest.getSession().getAttribute("user"));
-
         if (!isLoginCommand(httpServletRequest) && (user.isEmpty() || !((User) user.get()).isOnline())) {
             httpServletRequest.getRequestDispatcher(PAGE_LOGIN).forward(request, response);
             return;
