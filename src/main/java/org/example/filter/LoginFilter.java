@@ -1,6 +1,6 @@
 package org.example.filter;
 
-import org.example.data.User;
+import org.example.data.user.User;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -25,9 +25,11 @@ public class LoginFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         Optional<Object> user = Optional.ofNullable(httpServletRequest.getSession().getAttribute("user"));
 
-        if (!isLoginCommand(httpServletRequest) && (user.isEmpty() || !((User) user.get()).isOnline())) {
-            httpServletRequest.getRequestDispatcher(PAGE_LOGIN).forward(request, response);
-            return;
+        if (!isLoginCommand(httpServletRequest)) {
+            if ((user.isEmpty() || !((User) user.get()).isOnline())) {
+                httpServletRequest.getRequestDispatcher(PAGE_LOGIN).forward(request, response);
+                return;
+            }
         }
 
         filterChain.doFilter(request, response);

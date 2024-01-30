@@ -1,6 +1,6 @@
 package org.example.listener;
 
-import org.example.data.User;
+import org.example.data.user.User;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;

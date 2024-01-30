@@ -2,6 +2,7 @@ package org.example.command;
 
 import org.example.command.action.LoginCommand;
 import org.example.command.action.LogoutCommand;
+import org.example.command.action.MessagesRestricitonCommand;
 import org.example.command.action.SendMessageCommand;
 import org.example.command.show.ShowAdminPanelPageCommand;
 import org.example.command.show.ShowChatPageCommand;
@@ -12,6 +13,7 @@ public enum CommandType {
     LOGIN(new LoginCommand()),
     LOGOUT(new LogoutCommand()),
     SEND_MESSAGE(new SendMessageCommand()),
+    RESTRICT_MESSAGES(new MessagesRestricitonCommand()),
 
     SHOW_CHAT_PAGE(new ShowChatPageCommand()),
     SHOW_LOGIN_PAGE(new ShowLoginPageCommand()),

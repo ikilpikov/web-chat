@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,26 +11,33 @@
 </head>
 <body>
 <div class="admin-panel">
-    <h2>Панель управления админа</h2>
-    <ul class="user-list">
-        <li class="user-item">
-            <label for="user1">Пользователь 1:</label>
-            <select id="user1" name="user1">
-                <option value="allow">Разрешено</option>
-                <option value="deny">Запрещено</option>
-            </select>
-        </li>
-        <li class="user-item">
-            <label for="user2">Пользователь 2:</label>
-            <select id="user2" name="user2">
-                <option value="allow">Разрешено</option>
-                <option value="deny">Запрещено</option>
-            </select>
-        </li>
-    </ul>
-    <div class="button-container">
-        <button class="button" onclick="saveChanges()">Сохранить изменения</button>
-    </div>
+    <form action="chat?command=restrict_messages" method="post">
+        <h2>Панель управления админа</h2>
+
+        <ul class="user-list" name="users-list">
+            <c:forEach items="${users}" var="user">
+                <li class="user-item">
+                    <label><c:out value="${user.login}"/></label>
+                    <input type="hidden" name="login" value="${user.login}" />
+                    <select name="status">
+                        <c:choose>
+                            <c:when test="${user.readOnly == true}">
+                                <option value="true" selected>Только чтение</option>
+                                <option value="false">Чтение и отправка</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="true">Только чтение</option>
+                                <option value="false" selected>Чтение и отправка</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </select>
+                </li>
+            </c:forEach>
+        </ul>
+        <div class="button-container">
+            <button class="button" type="submit">Сохранить изменения</button>
+        </div>
+    </form>
 </div>
 
 </body>

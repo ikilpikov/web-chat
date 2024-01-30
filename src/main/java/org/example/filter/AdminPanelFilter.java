@@ -1,7 +1,7 @@
 package org.example.filter;
 
-import org.example.data.User;
-import org.example.data.UserType;
+import org.example.data.user.User;
+import org.example.data.user.UserType;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

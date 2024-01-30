@@ -2,7 +2,7 @@ package org.example.command.action;
 
 import org.example.command.Command;
 import org.example.data.DataBase;
-import org.example.data.User;
+import org.example.data.user.User;
 import org.example.result.ForwardResult;
 import org.example.result.RedirectResult;
 import org.example.result.Result;

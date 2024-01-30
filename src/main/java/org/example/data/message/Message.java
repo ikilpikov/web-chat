@@ -1,4 +1,4 @@
-package org.example.data;
+package org.example.data.message;
 
 public class Message {
     private String name;
