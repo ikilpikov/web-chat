@@ -39,6 +39,7 @@ public final class DataBase {
     public static void addMessage(Message message) {
         messages.add(message);
     }
+
     public static void init() {
         users.add(new User("asd", "asd", "Kirill", UserType.CLIENT));
         users.add(new User("qwe", "qwe", "Anton", UserType.CLIENT));

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static org.example.Resources.*;
+import static org.example.Resources.PAGE_CHAT;
 
 public class ShowChatPageCommand implements Command {
     @Override

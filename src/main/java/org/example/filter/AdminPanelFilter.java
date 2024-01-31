@@ -3,16 +3,19 @@ package org.example.filter;
 import org.example.data.user.User;
 import org.example.data.user.UserType;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.FilterConfig;
 import java.io.IOException;
 import java.util.Optional;
 
 import static org.example.Resources.COMMAND_SHOW_CHAT_PAGE;
-import static org.example.Resources.PAGE_CHAT;
 
 public class AdminPanelFilter implements Filter {
-    private static final String NOT_ADMIN_MESSAGE = "Вам запрещено редактировать права пользователей";
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
