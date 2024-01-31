@@ -16,7 +16,7 @@ import static org.example.Resources.*;
 public class ShowChatPageCommand implements Command {
     @Override
     public Result execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setIntHeader("Refresh", 2);
+        response.setIntHeader("Refresh", 6);
         request.setAttribute("messages", DataBase.getMessages());
 
         return new ForwardResult(PAGE_CHAT);

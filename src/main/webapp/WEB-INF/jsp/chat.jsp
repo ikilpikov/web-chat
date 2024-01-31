@@ -12,24 +12,30 @@
     </style>
 </head>
 <body>
+<div class="container">
+    <div id="chat-container">
+        <div id="messages-container">
+            <c:forEach items="${messages}" var="message">
+                <div class="message">
+                    <span class="sender"><c:out value="${message.name}:"/></span>
+                    <c:out value="${message.text}"/>
+                </div>
+            </c:forEach>
+        </div>
 
-<div id="chat-container">
-    <div id="messages-container">
-        <c:forEach items="${messages}" var="message">
-            <div class="message">
-                <span class="sender"><c:out value="${message.name}:" /></span>
-                <c:out value="${message.text}" />
-            </div>
-        </c:forEach>
+        <form id="input-container" action="chat?command=send_message" method="post">
+            <input type="text" id="message-input" name="message-input" placeholder="Введите сообщение...">
+            <button id="send-button" type="submit">Отправить</button>
+        </form>
+
+        <div class="button-container">
+            <button id="logout-button">Выйти из аккаунта</button>
+            <c:if test="${user.userType eq 'ADMIN'}">
+                <button id="admin-button">Управление правами пользователей</button>
+            </c:if>
+        </div>
+        <h4>${restrictionMessage}</h4>
     </div>
-
-    <form id="input-container" action="chat?command=send_message" method="post">
-        <input type="text" id="message-input" name="message-input" placeholder="Введите сообщение...">
-        <button id="send-button" type="submit">Отправить</button>
-    </form>
-
-    <button id="logout-button">Выйти из аккаунта</button>
-    <button id="admin-button">Управление правами пользователей</button>
 </div>
 </body>
 <script>

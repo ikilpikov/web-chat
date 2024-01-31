@@ -2,8 +2,8 @@ package org.example.command.action;
 
 import org.example.command.Command;
 import org.example.data.DataBase;
-import org.example.data.user.User;
 import org.example.result.ForwardResult;
+import org.example.result.RedirectResult;
 import org.example.result.Result;
 
 import javax.servlet.ServletException;
@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import static org.example.Resources.PAGE_CHAT;
+import static org.example.Resources.COMMAND_SHOW_CHAT_PAGE;
 
 public class MessagesRestricitonCommand implements Command {
     @Override
@@ -24,10 +23,10 @@ public class MessagesRestricitonCommand implements Command {
         List<Boolean> statusValues = extractStatusValues(request.getParameterValues("status"));
 
         for (int i = 0; i < statusValues.size(); i++) {
-            DataBase.setReadonlyByLogin(loginValues.get(i), statusValues.get(i));
+            DataBase.setReadOnlyByLogin(loginValues.get(i), statusValues.get(i));
         }
 
-        return new ForwardResult(PAGE_CHAT);
+        return new RedirectResult(COMMAND_SHOW_CHAT_PAGE);
     }
 
     private List extractStatusValues(String[] statuses) {

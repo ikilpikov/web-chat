@@ -6,11 +6,12 @@ import org.example.data.user.UserType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
 public final class DataBase {
     private static List<User> users = new ArrayList<>();
-    private static List<Message> messages = new ArrayList<>();
+    private static List<Message> messages = new CopyOnWriteArrayList<>();
 
     private DataBase() {
     }
@@ -19,7 +20,7 @@ public final class DataBase {
         return new ArrayList<>(users);
     }
 
-    public static void setReadonlyByLogin(String login, Boolean readOnly) {
+    public static void setReadOnlyByLogin(String login, Boolean readOnly) {
         users = users
                 .stream()
                 .map(x -> {
@@ -29,7 +30,6 @@ public final class DataBase {
                     return x;
                 })
                 .collect(Collectors.toList());
-
     }
 
     public static List<Message> getMessages() {

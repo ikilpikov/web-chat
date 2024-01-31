@@ -16,6 +16,7 @@ import static org.example.Resources.COMMAND_SHOW_CHAT_PAGE;
 import static org.example.Resources.COMMAND_SHOW_LOGIN_PAGE;
 
 public class LoginCommand implements Command {
+    private static final String INCORRECT_DATA_MESSAGE = "Неверные данные";
 
     @Override
     public Result execute(HttpServletRequest request, HttpServletResponse response) {
@@ -36,7 +37,7 @@ public class LoginCommand implements Command {
             }
         }
 
-        request.setAttribute("errorLoginMessage", "Неверные данные");
+        request.setAttribute("errorLoginMessage", INCORRECT_DATA_MESSAGE);
         request.setAttribute("loginInput", login);
         return new ForwardResult(COMMAND_SHOW_LOGIN_PAGE);
     }
