@@ -18,7 +18,7 @@ public class SendMessageCommand implements Command {
     private static final String READONLY_MESSAGE = "Вам запрещена отправка сообщений";
 
     @Override
-    public synchronized Result execute(HttpServletRequest request, HttpServletResponse response) {
+    public Result execute(HttpServletRequest request, HttpServletResponse response) {
         User user = (User) request.getSession().getAttribute("user");
         String name = user.getName();
         Optional<String> text = Optional.ofNullable(request.getParameter("message-input"));
@@ -29,6 +29,6 @@ public class SendMessageCommand implements Command {
             DataBase.addMessage(new Message(name, text.get()));
         }
 
-        return new ForwardResult(COMMAND_SHOW_CHAT_PAGE);
+        return new RedirectResult(COMMAND_SHOW_CHAT_PAGE);
     }
 }
